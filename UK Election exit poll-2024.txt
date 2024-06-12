@@ -1,0 +1,75 @@
+its a Java program that simulates an exit poll for the UK election in July 2024. This program will collect the number of constituencies won by each party and determine if any party has won the majority in the House of Commons (326 constituencies).
+
+import java.util.Scanner;
+
+public class UKElectionExitPoll2024 {
+
+    // Define the necessary constants
+    private static final int MAJORITY_SEATS = 326;
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Prompt user for number of seats won by each party
+        System.out.print("Enter the number of constituencies won by Conservatives: ");
+        int conservatives = scanner.nextInt();
+
+        System.out.print("Enter the number of constituencies won by Labour: ");
+        int labour = scanner.nextInt();
+
+        System.out.print("Enter the number of constituencies won by Scottish National Party: ");
+        int scottishNationalParty = scanner.nextInt();
+
+        System.out.print("Enter the number of constituencies won by Liberal Democrats: ");
+        int liberalDemocrats = scanner.nextInt();
+
+        System.out.print("Enter the number of constituencies won by Northern Ireland parties: ");
+        int northernIrelandParties = scanner.nextInt();
+
+        System.out.print("Enter the number of constituencies won by Plaid Cymru: ");
+        int plaidCymru = scanner.nextInt();
+
+        System.out.print("Enter the number of constituencies won by Other parliamentary parties: ");
+        int otherParliamentaryParties = scanner.nextInt();
+
+        System.out.print("Enter the number of constituencies won by Non-parliamentary political parties: ");
+        int nonParliamentaryParties = scanner.nextInt();
+
+        // Calculate the total number of seats
+        int totalSeats = conservatives + labour + scottishNationalParty + liberalDemocrats +
+                         northernIrelandParties + plaidCymru + otherParliamentaryParties +
+                         nonParliamentaryParties;
+
+        // Display the results
+        System.out.println("\nElection Exit Poll Results:");
+        System.out.println("Conservatives: " + conservatives);
+        System.out.println("Labour: " + labour);
+        System.out.println("Scottish National Party: " + scottishNationalParty);
+        System.out.println("Liberal Democrats: " + liberalDemocrats);
+        System.out.println("Northern Ireland parties: " + northernIrelandParties);
+        System.out.println("Plaid Cymru: " + plaidCymru);
+        System.out.println("Other parliamentary parties: " + otherParliamentaryParties);
+        System.out.println("Non-parliamentary political parties: " + nonParliamentaryParties);
+        System.out.println("Total Seats: " + totalSeats);
+
+        // Check if any party has won the majority
+        checkMajority("Conservatives", conservatives);
+        checkMajority("Labour", labour);
+        checkMajority("Scottish National Party", scottishNationalParty);
+        checkMajority("Liberal Democrats", liberalDemocrats);
+        checkMajority("Northern Ireland parties", northernIrelandParties);
+        checkMajority("Plaid Cymru", plaidCymru);
+        checkMajority("Other parliamentary parties", otherParliamentaryParties);
+        checkMajority("Non-parliamentary political parties", nonParliamentaryParties);
+
+        scanner.close();
+    }
+
+    private static void checkMajority(String partyName, int seats) {
+        if (seats >= MAJORITY_SEATS) {
+            System.out.println(partyName + " has won the majority with " + seats + " seats.");
+        }
+    }
+}
+
+This program uses the Scanner class to read the number of constituencies won by each party from the user. It then checks if any party has won the majority (326 constituencies) and prints the result. You can run this program in any Java IDE or compile it using a command-line tool.
